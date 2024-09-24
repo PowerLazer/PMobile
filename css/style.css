@@ -1,0 +1,140 @@
+    font-family: Arial, sans-serif;
+    background-color: #F0F0F0;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 240px;
+    position: relative;
+    overflow: hidden; /* Скрыть переполнение */
+}
+
+header {
+    background-color: #E6E6E6;
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid #CCCCCC;
+    font-weight: bold;
+}
+
+.content {
+    margin-left: 60px; /* Отступ слева для рекламы */
+    padding: 10px;
+    max-height: 350px; /* Ограничение высоты для контента */
+    overflow-y: auto; /* Скроллинг, если контент превышает высоту */
+}
+
+.menu {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 15px; /* Добавлен отступ между меню */
+}
+
+.menu a {
+    display: block;
+    padding: 7px 0; /* Увеличен padding для большего пространства */
+    border-bottom: 1px solid #CCCCCC;
+    color: #007BFF; /* Сделаем ссылки ярче */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Плавный переход для изменения цвета */
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Цвет при наведении */
+}
+
+footer {
+    background-color: #E6E6E6;
+    font-size: 12px;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #CCCCCC;
+    text-align: center;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50px; /* Ширина баннера */
+    height: 100%;
+    background-color: #F5F5F5;
+    border-right: 1px solid #CCCCCC;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.ad-banner {
+    font-size: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    border-radius: 5px; /* Добавлены закругленные углы */
+}
+
+iframe {
+    width: 240px;
+    height: 300px;
+    border: none;
+    margin-bottom: 15px; /* Отступ снизу для iframe */
+}
+
+.quote-section {
+    margin-top: 10px;
+    background-color: #E9F5FF; /* Светлый фон для цитат */
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+}
+
+.quote {
+    font-size: 14px;
+    font-style: italic;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.random-gif {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для картинки */
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 240px) {
+    body {
+        width: 100%; /* Адаптация для меньших экранов */
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    .content {
+        max-height: 300px; /* Ограничение высоты для контента */
+    }
+    
+    .menu {
+        font-size: 12px; /* Уменьшение размера шрифта для меню */
+    }
+
+    .quote {
+        font-size: 12px; /* Уменьшение размера шрифта для цитат */
+    }
+
+    .random-gif {
+        width: 80px; /* Уменьшение размера для GIF */
+        height: 80px;
+    }
+}
