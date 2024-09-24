@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=240, initial-scale=1.0">
+    <title>PowerMobile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F0F0;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            width: 240px;
+            position: relative;
+        }
+
+        header {
+            background-color: #E6E6E6;
+            font-size: 16px;
+            padding: 5px;
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        .content {
+            margin-left: 60px; /* Отступ слева для рекламы */
+            padding: 10px;
+        }
+
+        .quote {
+            font-size: 14px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #FFD700; /* Желтый фон */
+            color: #000000; /* Черный текст */
+            border: 2px solid #FFA500; /* Оранжевый контур */
+            border-radius: 30px; /* Овальная форма */
+            display: inline-block; /* Центрирование */
+            width: auto; /* Автоматическая ширина */
+            max-width: 220px; /* Максимальная ширина для цитаты */
+        }
+
+        .menu {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 5px 0;
+            border-bottom: 1px solid #CCCCCC;
+            color: #0000FF;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #E6E6E6;
+            font-size: 12px;
+            padding: 5px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #CCCCCC;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 50px; /* Ширина баннера */
+            height: 100%;
+            background-color: #F5F5F5;
+            border-right: 1px solid #CCCCCC;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .ad-banner {
+            font-size: 10px;
+            padding: 5px;
+            margin: 5px 0;
+            color: #FFFFFF;
+            text-decoration: none;
+            display: block; /* Отображение как блок */
+            border-radius: 5px; /* Скругленные углы для баннеров */
+        }
+    </style>
+    <script>
+        const adTexts = [
+            "Flash игры нового поколения!",
+            "Загрузите лучшие темы!",
+            "MP3 рингтоны бесплатно!",
+            "Программы для вашего телефона!",
+            "Обои 320x240 — скачай сейчас!",
+            "Лучшие Java-игры для S40!",
+            "Самые горячие рингтоны!",
+            "Картинки на телефон бесплатно!",
+            "Скачай топовые приложения!",
+            "Новые темы для вашего Nokia!",
+            "Игры с графикой нового уровня!",
+            "Новинки в мире Flash-заставок!",
+            "Лучшие MP3 рингтоны года!",
+            "Оригинальные обои для экрана!",
+            "Скачай интересные программы!",
+            "Новые игры — новые впечатления!",
+            "Скачайте музыку без регистрации!",
+            "Популярные заставки на телефон!",
+            "Новые яркие темы для экрана!",
+            "Флеш-игры с фантастическим сюжетом!",
+            "Оригинальные программы для S40!",
+            "Загрузите уникальные обои!",
+            "Новый мир MP3 рингтонов!",
+            "Захватывающие Java-игры!",
+            "Новые коллекции Flash-заставок!",
+            "Мультимедиа на любой вкус!",
+            "Популярные игры для телефона!",
+            "Самые свежие приложения!",
+            "Классные темы для дисплея!",
+            "Заставки для всех моделей телефонов!",
+            "Скачай музыку прямо сейчас!"
+        ];
+
+        const quotes = [
+            "Жизнь — это то, что происходит, пока вы строите другие планы.",
+            "Будь тем изменением, которое ты хочешь видеть в мире.",
+            "Счастье не в том, чтобы иметь все, а в том, чтобы быть довольным.",
+            "Секрет изменения состоит в том, чтобы сосредоточить всю свою энергию, не на борьбе с прошлым, а на построении будущего.",
+            "Делайте то, что вы можете, с тем, что у вас есть, там, где вы находитесь.",
+            "Успех — это не ключ к счастью. Счастье — это ключ к успеху.",
+            "Не останавливайтесь на достигнутом.",
+            "Каждый день — это новая возможность изменить свою жизнь.",
+            "Ваше время ограничено, не тратьте его, живя чужой жизнью.",
+            "Сложности — это те вещи, которые заставляют вас расти.",
+            "Секрет успеха в том, чтобы начать.",
+            "Делайте сегодня то, что другие не хотят делать, и завтра будете жить так, как другие не могут.",
+            "Кто хочет, тот ищет возможности; кто не хочет, тот ищет причины.",
+            "Смелость — это не отсутствие страха, а способность действовать несмотря на страх.",
+            "Никогда не бойтесь делать шаги в неизвестность.",
+            "Все, что мы есть, — это результат того, что мы думали."
+        ];
+
+        const adColors = ["#FF0000", "#00AA00", "#0000FF", "#FFA500", "#800080", "#FF69B4", "#008080", "#FFD700", "#A52A2A", "#2E8B57"];
+
+        function showAds() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.innerHTML = '';
+            const usedTexts = new Set();
+            const usedColors = new Set();
+
+            for (let i = 0; i < 5; i++) {
+                let randomText;
+                do {
+                    randomText = adTexts[Math.floor(Math.random() * adTexts.length)];
+                } while (usedTexts.has(randomText));
+                usedTexts.add(randomText);
+
+                let randomColor;
+                do {
+                    randomColor = adColors[Math.floor(Math.random() * adColors.length)];
+                } while (usedColors.has(randomColor));
+                usedColors.add(randomColor);
+
+                const adBanner = document.createElement('a');
+                adBanner.href = 'about:blank';
+                adBanner.className = 'ad-banner';
+                adBanner.style.backgroundColor = randomColor;
+                adBanner.textContent = randomText;
+                sidebar.appendChild(adBanner);
+            }
+        }
+
+        function showRandomQuote() {
+            const content = document.querySelector('.content');
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+
+            const quoteElement = document.createElement('div');
+            quoteElement.className = 'quote';
+            quoteElement.textContent = quote;
+            content.appendChild(quoteElement);
+        }
+
+        window.onload = function() {
+            showAds();
+            showRandomQuote(); // Отображаем только одну случайную цитату
+        };
+    </script>
+</head>
+<body>
+
+<header>
+    <b>PowerMobile</b>
+</header>
+
+<div class="sidebar"></div>
+
+<div class="content">
+    <div class="menu">
+        <b>Все для телефона:</b>
+        <a href="https://series40.kiev.ua/java_games/" target="iframe">Java игры</a>
+        <a href="https://series40.kiev.ua/java_progs/" target="iframe">Java программы</a>
+        <a href="https://series40.kiev.ua/tems240_320/" target="iframe">Темы 240x320</a>
+        <a href="https://series40.kiev.ua/s40_flash/" target="iframe">Flash заставки</a>
+        <a href="https://series40.kiev.ua/pic/" target="iframe">Картинки</a>
+        <a href="https://series40.kiev.ua/pic2/" target="iframe">Обычные заставки</a>
+        <a href="https://series40.kiev.ua/pics_320x240" target="iframe">Картинки 320x240</a>
+        <a href="https://series40.kiev.ua/mp3_ringtones" target="iframe">MP3 рингтоны</a>
+    </div>
+    
+    <div class="menu">
+        <b>Мир:</b>
+        <a href="https://meteopost.com/ru/" target="iframe">Погода</a>
+        <a href="https://kurs.com.ua/" target="iframe">Курс валют</a>
+        <a href="https://vseazs.com/" target="iframe">Бензин</a>
+    </div>
+    
+    <iframe name="iframe" style="width: 240px; height: 300px; border: none;"></iframe>
+</div>
+
+<footer>
+    &copy; 2024 PowerLazer
+</footer>
+
+</body>
+</html>
+
